@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jdbc-data-source xmlns="http://www.bea.com/ns/weblogic/jdbc-data-source" xmlns:sec="http://www.bea.com/ns/weblogic/90/security" xmlns:wls="http://www.bea.com/ns/weblogic/90/security/wls" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.bea.com/ns/weblogic/jdbc-data-source http://www.bea.com/ns/weblogic/jdbc-data-source/1.0/jdbc-data-source.xsd">
+  <name>RHsqlserverDS</name>
+  <jdbc-driver-params>
+    <url>jdbc:bea:sqlserver://10.103.2.152:1433</url>
+    <driver-name>weblogic.jdbc.sqlserver.SQLServerDriver</driver-name>
+    <properties>
+      <property>
+        <name>user</name>
+        <value>itxNexinde</value>
+      </property>
+      <property>
+        <name>portNumber</name>
+        <value>1433</value>
+      </property>
+      <property>
+        <name>databaseName</name>
+        <value>V4Nextel</value>
+      </property>
+      <property>
+        <name>serverName</name>
+        <value>10.103.2.152</value>
+      </property>
+    </properties>
+    <password-encrypted> </password-encrypted>
+  </jdbc-driver-params>
+  <jdbc-connection-pool-params>
+    <initial-capacity>1</initial-capacity>
+    <max-capacity>15</max-capacity>
+    <capacity-increment>1</capacity-increment>
+    <test-table-name>SQL SELECT 1</test-table-name>
+    <statement-cache-size>10</statement-cache-size>
+    <statement-cache-type>LRU</statement-cache-type>
+  </jdbc-connection-pool-params>
+  <jdbc-data-source-params>
+    <jndi-name>RHsqlDS</jndi-name>
+    <jndi-name/>
+    <jndi-name/>
+    <jndi-name/>
+    <jndi-name/>
+    <global-transactions-protocol>OnePhaseCommit</global-transactions-protocol>
+  </jdbc-data-source-params>
+</jdbc-data-source>

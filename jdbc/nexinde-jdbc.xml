@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jdbc-data-source xmlns="http://www.bea.com/ns/weblogic/jdbc-data-source" xmlns:sec="http://www.bea.com/ns/weblogic/90/security" xmlns:wls="http://www.bea.com/ns/weblogic/90/security/wls" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.bea.com/ns/weblogic/jdbc-data-source http://www.bea.com/ns/weblogic/jdbc-data-source/1.0/jdbc-data-source.xsd">
+  <name>nexinde</name>
+  <jdbc-driver-params>
+    <url>jdbc:oracle:thin:@10.103.12.87:1562:ICCI</url>
+    <driver-name>oracle.jdbc.OracleDriver</driver-name>
+    <properties>
+      <property>
+        <name>user</name>
+        <value>nexindeapp</value>
+      </property>
+    </properties>
+    <password-encrypted>{3DES}TP9ZyqCTBBVtjIOFc8EA4w==</password-encrypted>
+  </jdbc-driver-params>
+  <jdbc-connection-pool-params>
+    <initial-capacity>1</initial-capacity>
+    <max-capacity>15</max-capacity>
+    <capacity-increment>1</capacity-increment>
+    <test-table-name>SQL SELECT 1 FROM DUAL</test-table-name>
+    <statement-cache-size>10</statement-cache-size>
+    <statement-cache-type>LRU</statement-cache-type>
+  </jdbc-connection-pool-params>
+  <jdbc-data-source-params>
+    <jndi-name>nexindeDS</jndi-name>
+    <global-transactions-protocol>OnePhaseCommit</global-transactions-protocol>
+  </jdbc-data-source-params>
+</jdbc-data-source>
