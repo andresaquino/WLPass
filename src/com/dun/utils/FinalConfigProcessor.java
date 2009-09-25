@@ -398,7 +398,7 @@ public class FinalConfigProcessor {
 
         }
         try {
-            configOut.save(new File(outPut.toString() +"testing.this.shit"));
+            configOut.save(outPut);
         } catch (ConfigurationException ex) {
         }
         StringBuffer web9Passwords = new StringBuffer(40);
@@ -425,7 +425,13 @@ public class FinalConfigProcessor {
                 }else{
                     decrypted = "no me lo se";
                 }
-                descriptorconfig.setProperty("jdbc-driver-params.password-encrypted", " ");
+                if(recipher){
+
+                    descriptorconfig.setProperty("jdbc-driver-params.password-encrypted", recipherJDBCWL8(decrypted));
+                }else{
+                    descriptorconfig.setProperty("jdbc-driver-params.password-encrypted", decrypted);
+                }
+//                descriptorconfig.setProperty("jdbc-driver-params.password-encrypted", " ");
 
                 web9Passwords.append(f.getName() + ":" + decrypted + "\n");
 

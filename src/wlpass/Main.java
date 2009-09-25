@@ -78,6 +78,7 @@ public class Main {
                 contenedor = RemoteFiles.getRemoteFiles(input, type);
                 try {
                     FileUtil.copy(contenedor[1], workingDir + File.separatorChar + "SerializedSystemIni.dat");
+                    FileUtil.copy(contenedor[2], workingDir + File.separatorChar + "boot.properties");
                 } catch (IOException ex) {
                     Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -87,6 +88,7 @@ public class Main {
                 } catch (FileNotFoundException ex) {
                     ex.printStackTrace();
                 }
+                System.out.println("empezando el parseo");
                 while (sc.hasNext()) {
                     String temp = sc.nextLine();
                     if (temp.contains("{")) {

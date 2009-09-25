@@ -48,6 +48,15 @@ public class RemoteFiles {
         con.openConnection("hostname", true);
         con.flushStdOut();
         //se usa para obtener la version de weylogic
+
+        //si el path empieza con / no es relativo, y se usara el path completo hasta bea
+        if(rfile.startsWith("/")){
+            System.out.println("shiaaaaaaaales "+ rfile);
+            System.out.println(rfile.substring(0,rfile.lastIndexOf("bea")));
+            con.execSingleCommand("ls "+ rfile.substring(0,rfile.lastIndexOf("bea")) + "bea");
+        }else{
+            con.execSingleCommand("ls bea");
+        }
         con.execSingleCommand("ls bea");
 
         String webInstalled = con.getStdOut();
@@ -82,9 +91,12 @@ public class RemoteFiles {
             log.info("get " + path + "config/config.xml a " + tempDir);
             con.scpClient("get", path + "config/config.xml", tempDir);
             contenedor[0] = tempDir + File.separator + "config.xml";
-
-            log.info("get " + path + "security/SerializedSystemIni.dat a " + tempDir);
-            con.scpClient("get", path + "security/SerializedSystemIni.dat", tempDir);
+            con.resetStdOut();
+            con.execSingleCommand("find $HOME/"+rfile+" -name SerializedSystemIni.dat | tail -1");
+            String ser = con.flushStdOut();
+//            log.info("get " + path + "security/SerializedSystemIni.dat a " + tempDir);
+            log.info("get " + ser+" a " + tempDir);
+            con.scpClient("get", ser, tempDir);
             contenedor[1] = tempDir + File.separator + "SerializedSystemIni.dat";
 
             log.info("get " + path + "boot.properties a " + tempDir);
