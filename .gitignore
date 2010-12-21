@@ -1,0 +1,4 @@
+build/*
+build.xml
+error.log
+jdbc/*
